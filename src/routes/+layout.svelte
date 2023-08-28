@@ -7,6 +7,7 @@
 	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
 	import { AppShell, AppBar, Avatar } from '@skeletonlabs/skeleton';
+	import Navigation from '$lib/components/Navigation.svelte';
 </script>
 
 <AppShell slotSidebarLeft="w-52 bg-surface-500/10 p-4">
@@ -19,7 +20,10 @@
 			>
 		</AppBar>
 	</svelte:fragment>
-	<svelte:fragment slot="sidebarLeft">Sidebar Left</svelte:fragment>
+	<svelte:fragment slot="sidebarLeft">
+		<Navigation />
+	</svelte:fragment>
+
 	<!-- Router Slot -->
 	<div class="container p-10 mx-auto">
 		<slot />
