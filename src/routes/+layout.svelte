@@ -10,7 +10,7 @@
 	import Navigation from '$lib/components/Navigation.svelte';
 </script>
 
-<AppShell slotSidebarLeft="w-52 bg-surface-500/10 p-4">
+<AppShell slotSidebarLeft="w-0 md:w-52 bg-surface-500/10">
 	<svelte:fragment slot="header">
 		<AppBar>
 			<svelte:fragment slot="lead"><strong class="text-xl uppercase">Noted</strong></svelte:fragment
