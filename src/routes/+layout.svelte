@@ -6,14 +6,32 @@
 	import '@skeletonlabs/skeleton/styles/skeleton.css';
 	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
-	import { AppShell, AppBar, Avatar } from '@skeletonlabs/skeleton';
+	import { AppShell, AppBar, Avatar, Drawer, drawerStore } from '@skeletonlabs/skeleton';
 	import Navigation from '$lib/components/Navigation.svelte';
+
+	function drawerOpen(): void {
+		drawerStore.open();
+	}
 </script>
+
+<Drawer>
+	<Navigation />
+</Drawer>
 
 <AppShell slotSidebarLeft="w-0 md:w-52 bg-surface-500/10">
 	<svelte:fragment slot="header">
 		<AppBar>
-			<svelte:fragment slot="lead"><strong class="text-xl uppercase">Noted</strong></svelte:fragment
+			<svelte:fragment slot="lead">
+				<button class="md:hidden btn btn-sm mr-4" on:click={drawerOpen}>
+					<span>
+						<svg viewBox="0 0 100 80" class="fill-token w-4 h-4">
+							<rect width="100" height="20" />
+							<rect y="30" width="100" height="20" />
+							<rect y="60" width="100" height="20" />
+						</svg>
+					</span>
+				</button>
+				<strong class="text-xl uppercase">Noted</strong></svelte:fragment
 			>
 			<svelte:fragment slot="trail"
 				><Avatar initials="AS" width="w-10" background="bg-primary-500" /></svelte:fragment
