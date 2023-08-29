@@ -2,7 +2,7 @@
 
 A Notes App built with [Skeleton UI](https://www.skeleton.dev/), a UI Toolkit for **Svelte + Tailwind**.
 
-Kudos to Huntabyte for the [tutorial](https://www.youtube.com/watch?v=P_A0qQ7AuK8&list=PLeIh1fX3_xOPcbs1BrhWpQQllHzwBpn75).
+Kudos to [Huntabyte](https://github.com/huntabyte/noted-skeletonui) for the [tutorial](https://www.youtube.com/watch?v=P_A0qQ7AuK8&list=PLeIh1fX3_xOPcbs1BrhWpQQllHzwBpn75).
 
 This project was scaffoled using the *Skeleton CLI*:
 
