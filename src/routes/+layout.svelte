@@ -6,7 +6,7 @@
 	import '@skeletonlabs/skeleton/styles/skeleton.css';
 	// Most of your app wide CSS should be put in this file
 	import '../app.postcss';
-	import { AppShell, AppBar, Avatar, Toast, Drawer, drawerStore } from '@skeletonlabs/skeleton';
+	import { AppShell, AppBar, Avatar, Toast, Modal, Drawer, drawerStore } from '@skeletonlabs/skeleton';
 	import Navigation from '$lib/components/Navigation.svelte';
 
 	function drawerOpen(): void {
@@ -15,7 +15,7 @@
 </script>
 
 <Toast position="tr" />
-
+<Modal />
 <Drawer>
 	<Navigation />
 </Drawer>

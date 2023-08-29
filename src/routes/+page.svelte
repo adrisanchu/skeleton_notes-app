@@ -1,5 +1,24 @@
 <script lang="ts">
 	import { noteStore } from '$lib/stores';
+	import { modalStore, type ModalSettings } from '@skeletonlabs/skeleton';
+
+	function deleteNote(noteId: string): void {
+		const confirmDelete: ModalSettings = {
+			type: 'confirm',
+			title: 'Delete Note',
+			body: 'Are you sure you want to delete this note?',
+			response: (r: boolean) => {
+				if (r) {
+					// do something
+					console.log('note deleted!');
+					return;
+				}
+				// notify success or error
+				console.log('cancel: note was not deleted!');
+			}
+		};
+		modalStore.trigger(confirmDelete);
+	}
 </script>
 
 <div class="container h-full mx-auto gap-8 flex flex-col">
@@ -10,8 +29,10 @@
 	<div class="grid grid-cols-3 gap-4">
 		{#each $noteStore as note}
 			<div class="card p-4 variant-ghost-warning flex flex-col gap-2 relative">
-				<button type="button" class="btn-icon btn-icon-sm variant-filled-error absolute -top-1.5 -right-1.5"
-					>X</button
+				<button
+					type="button"
+					on:click={() => deleteNote(note.id)}
+					class="btn-icon btn-icon-sm variant-filled-error absolute -top-1.5 -right-1.5">X</button
 				>
 				<div>{note.content}</div>
 				<div class="flex gap-1 flex-wrap">
