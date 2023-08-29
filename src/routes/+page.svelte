@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { noteStore } from '$lib/stores';
-	import { modalStore, type ModalSettings } from '@skeletonlabs/skeleton';
+	import { modalStore, type ModalSettings, toastStore } from '@skeletonlabs/skeleton';
 
 	function deleteNote(noteId: string): void {
 		const confirmDelete: ModalSettings = {
@@ -9,12 +9,19 @@
 			body: 'Are you sure you want to delete this note?',
 			response: (r: boolean) => {
 				if (r) {
-					// do something
-					console.log('note deleted!');
+					// delete a note and notify
+					noteStore.update((notes) => notes.filter((n) => n.id !== noteId));
+					toastStore.trigger({
+						message: 'Note deleted successfully',
+						background: 'variant-ghost-success'
+					});
 					return;
 				}
-				// notify success or error
-				console.log('cancel: note was not deleted!');
+				// notify cancel action
+				toastStore.trigger({
+					message: 'Note not deleted',
+					background: 'variant-ghost-error'
+				});
 			}
 		};
 		modalStore.trigger(confirmDelete);
