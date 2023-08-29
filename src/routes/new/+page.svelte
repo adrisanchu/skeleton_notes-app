@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { InputChip, toastStore, type ToastSettings } from '@skeletonlabs/skeleton';
-	import { noteStore } from '../../stores';
+	import { noteStore } from '$lib/stores';
 	import { goto } from '$app/navigation';
 	let tags: string[] = [];
 	let content: string;
