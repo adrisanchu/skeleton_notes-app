@@ -1,8 +1,14 @@
 <script lang="ts">
-	import { InputChip } from '@skeletonlabs/skeleton';
+	import { InputChip, toastStore, type ToastSettings } from '@skeletonlabs/skeleton';
 	import { noteStore } from '../../stores';
+	import { goto } from '$app/navigation';
 	let tags: string[] = [];
 	let content: string;
+
+	const t: ToastSettings = {
+		message: 'Note created successfully!',
+		background: 'variant-filled-success'
+	};
 
 	function createNote(): void {
 		noteStore.update((notes) => [
@@ -16,6 +22,10 @@
 		// reset input form
 		content = '';
 		tags = [];
+		// display success notification
+		toastStore.trigger(t);
+		// navigate to main page
+		goto('/');
 	}
 </script>
 
