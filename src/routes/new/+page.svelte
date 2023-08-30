@@ -29,6 +29,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Noted - New</title>
+</svelte:head>
+
 <div class="container h-full mx-auto gap-8 flex flex-col">
 	<form class="card p-4 flex flex-col gap-3">
 		<h2>New Note</h2>

@@ -28,6 +28,10 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Noted</title>
+</svelte:head>
+
 <div class="container h-full mx-auto gap-8 flex flex-col">
 	<div class="flex items-center justify-between">
 		<h2>Notes</h2>
